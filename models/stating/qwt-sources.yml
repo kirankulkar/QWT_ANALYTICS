@@ -8,3 +8,5 @@ sources:
       - name: products
       - name: orders
       - name: order_details
+      - name: offices
+      - name: employees
