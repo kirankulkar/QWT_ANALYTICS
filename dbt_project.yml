@@ -44,4 +44,5 @@ models:
 seeds: 
   +schema: lookup
  
-       
+vars:
+  v_city: London       
