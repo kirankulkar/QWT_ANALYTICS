@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: customers
+    columns:
+      - name: customerid
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    columns:
+      - name: customerid
+        tests:
+          - unique
+          - not_null
+          - is_even
+
+  - name: stg_orders
+    columns:
+      - name: orderid
+        tests:
+          - unique
+          - not_null
+      - name: customerid
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customerid
+
+  - name: stg_shipments
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['replaced', 'shipped', 'ordered', 'returned']
+      - name: customerid
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customerid
+                      
