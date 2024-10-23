@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: customers
+    description: this is for customers
     columns:
       - name: customerid
         tests:
@@ -9,6 +10,7 @@ models:
           - not_null
 
   - name: stg_customers
+    description: this is for staging customers  
     columns:
       - name: customerid
         tests:
@@ -17,12 +19,15 @@ models:
           - is_even
 
   - name: stg_orders
+    description: this is for staging orders  
     columns:
       - name: orderid
+        description: this is key column in staging orders table
         tests:
           - unique
           - not_null
       - name: customerid
+        description: this is reference key column in staging customers table
         tests:
           - not_null
           - relationships:
@@ -30,8 +35,10 @@ models:
               field: customerid
 
   - name: stg_shipments
+    description: this is for staging shipments  
     columns:
       - name: status
+        description: this is for status in staging shipments  
         tests:
           - accepted_values:
               values: ['replaced', 'shipped', 'ordered', 'returned']
