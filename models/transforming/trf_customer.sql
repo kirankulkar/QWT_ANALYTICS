@@ -1,4 +1,4 @@
-{{ config(materialized='table' ,schema='transforming')}}
+{{ config(materialized='table' ,schema = env_var('DBT_TRANSFORMING','TRANSFORMING')) }}
 
 select 
 CUSTOMERID, COMPANYNAME, CONTACTNAME, CITY, COUNTRY, c.DIVISIONID,d.DIVISIONNAME, ADDRESS, FAX, PHONE, POSTALCODE, 
