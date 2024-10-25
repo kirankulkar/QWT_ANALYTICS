@@ -1,4 +1,4 @@
-{{ config(materialized='table' ,schema='transforming')}}
+{{ config(materialized='table' ,schema = env_var('DBT_TRANSFORMING','TRANSFORMING'))}}
 
 {% set var_min_order_dt = get_min_order_dt()%}
 

@@ -1,4 +1,4 @@
-{{ config(materialized='table' ,schema='transforming')}}
+{{ config(materialized='table' ,schema = env_var('DBT_TRANSFORMING','TRANSFORMING'))}}
 
 select 
 get(xmlget(supplierinfo,'SupplierID'),'$')::varchar as SupplierID,

@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: trf_shipments_py
+    description: this is for staging trf_shipments_py  
+    config:
+      schema: "{{env_var('DBT_TRANSFORMING','TRANSFORMING')}}"
