@@ -61,7 +61,7 @@ vars:
   v_city: London
   "dbt_date:time_zone": "America/Los_Angeles"  
   # dbt_dq_tool_database: DQ
-  dbt_dq_tool_schema: {{env_var('dbt_auditschema','auditing')}}
+  dbt_dq_tool_schema: "{{env_var('dbt_auditschema','auditing')}}"
   dq_tools_enable_store_test_results: True
 
 on-run-end:
