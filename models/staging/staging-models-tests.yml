@@ -12,7 +12,7 @@ models:
   - name: stg_customers
     description: this is for staging customers  
     config:
-      schema: "{{env_var('dbt_stageschema','staging')}}"
+      schema: "{{env_var('DBT_STAGESCHEMA','staging')}}"
     columns:
       - name: customerid
         tests:
@@ -23,7 +23,7 @@ models:
   - name: stg_orders
     description: this is for staging orders 
     config:
-      schema: "{{env_var('dbt_stageschema','staging')}}" 
+      schema: "{{env_var('DBT_STAGESCHEMA','staging')}}" 
     columns:
       - name: orderid
         description: this is key column in staging orders table
@@ -40,7 +40,7 @@ models:
 
   - name: stg_shipments
     config:
-      schema: "{{env_var('dbt_stageschema','staging')}}"
+      schema: "{{env_var('DBT_STAGESCHEMA','staging')}}"
     description: this is for staging shipments  
     columns:
       - name: status
