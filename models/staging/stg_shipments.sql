@@ -1,4 +1,4 @@
-{{ config(materialized='table' )}}
+{{ config(materialized='table', schema = env_var('DBT_STAGESCHEMA','STAGING') )}}
 
 with shipments as (
 select OrderID,
