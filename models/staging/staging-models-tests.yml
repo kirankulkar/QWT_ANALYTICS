@@ -1,14 +1,6 @@
 version: 2
 
 models:
-  - name: customers
-    description: this is for customers
-    columns:
-      - name: customerid
-        tests:
-          - unique
-          - not_null
-
   - name: stg_customers
     description: this is for staging customers  
     config:
@@ -19,6 +11,12 @@ models:
           - unique
           - not_null
           - is_even
+
+  - name: stg_products
+    description: this is for staging products  
+    config:
+      schema: "{{env_var('DBT_STAGESCHEMA','STAGING')}}"
+
 
   - name: stg_orders
     description: this is for staging orders 
